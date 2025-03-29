@@ -5,12 +5,16 @@
 #ifndef DEFS_H
 #define DEFS_H
 
-typedef unsigned long long U64;
 
 #define NAME "Chess Engine"
 #define BRD_SQ_NUM 128
 
 #define MAXGAMEMOVES 2048
+
+// macros
+#define FR2HQ(f,r) ( (21 + (f) ) + ( (r) * 10) )
+
+typedef unsigned long long U64;
 
 enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK };
 enum { FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NONE };
@@ -66,6 +70,7 @@ typedef struct {
   S_UNDO history[MAXGAMEMOVES];
 } S_BOARD;
 
-#define FR2HQ(f,r) ( (21 + (f) ) + ( (r) * 10) )
+extern int Sq120ToSq64[BRD_SQ_NUM];
+extern int Sq64ToSq120[64];
 
 #endif //DEFS_H
