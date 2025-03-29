@@ -1,3 +1,6 @@
 # ninja log v6
-8	88	1743203170308738321	CMakeFiles/chess_engine.dir/main.c.o	9692be33cec92bba
-88	119	1743203170390145542	chess_engine	f81369d0798f61b9
+5	111	1743221518480216130	CMakeFiles/chess_engine.dir/init.c.o	aecb7eeae0774857
+1	26	1743223055384388972	build.ninja	135483eb60d7a5a4
+1	27	1743221597418641368	CMakeFiles/chess_engine.dir/main.c.o	9692be33cec92bba
+27	52	1743221597444641718	chess_engine	4964d4bc6861ebb5
+5	111	1743221518480336998	CMakeFiles/chess_engine.dir/bitboards.c.o	d8a6c939c74aef27

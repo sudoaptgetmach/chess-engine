@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include "defs.h"
 
-int main(void) {
-    printf("Hello, World!\n");
-    return 0;
+int main() {
+
+   AllInit();
+   int index = 0;
+   U64 playBitBoard = 0ULL;
+
+
+
+   return 0;
 }
