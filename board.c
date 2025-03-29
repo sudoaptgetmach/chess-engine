@@ -215,6 +215,8 @@ int ParseFen(char *fen, S_BOARD *pos) {
 
     pos->posKey = GeneratePosKey(pos);
 
+    UpdateListsMaterial(pos);
+
     return 0;
 }
 

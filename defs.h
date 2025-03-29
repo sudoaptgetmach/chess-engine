@@ -29,15 +29,6 @@ if (!(n)) { \
 
 #define START_FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
-/* MACROS */
-#define FR2SQ(f,r) ( (21 + (f) ) + ( (r) * 10) )
-#define SQ64(sq120) (Sq120ToSq64[(sq120)])
-#define SQ120(sq64) (Sq64ToSq120[(sq64)])
-#define POP(b) PopBit(b)
-#define CNT(b) CountBits(b)
-#define CLRBIT(bb,sq) ((bb) &= ClearMask[(sq)])
-#define SETBIT(bb,sq) ((bb) |= SetMask[(sq)])
-
 typedef unsigned long long U64;
 
 enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK };
@@ -60,6 +51,11 @@ enum {
 enum { FALSE, TRUE };
 
 enum { WKCA = 1, WQCA = 2, BKCA = 4, BQCA = 8 };
+
+typedef struct {
+  int move;
+  int score;
+} S_MOVE;
 
 typedef struct {
   int move;
@@ -97,6 +93,34 @@ typedef struct {
   int pList[13][10];
 } S_BOARD;
 
+/* GAME MOVE */
+
+#define FROMSQ(m) ((m) & 0x3F)
+#define TOSQ(m) (((m)>>7) & 0x3F)
+#define CAPTURED(m) (((m)>>14) & 0xF)
+#define PROMOTED(m) (((m)>>20) & 0xF)
+
+#define MFLAGEP 0x40000
+#define MFLAGPS 0x80000
+#define MFLAGCA 0x1000000
+
+#define MFLAGCAP 0x7C000
+#define MFLAGPROM 0xF00000
+
+/* MACROS */
+#define FR2SQ(f,r) ( (21 + (f) ) + ( (r) * 10) )
+#define SQ64(sq120) (Sq120ToSq64[(sq120)])
+#define SQ120(sq64) (Sq64ToSq120[(sq64)])
+#define POP(b) PopBit(b)
+#define CNT(b) CountBits(b)
+#define CLRBIT(bb,sq) ((bb) &= ClearMask[(sq)])
+#define SETBIT(bb,sq) ((bb) |= SetMask[(sq)])
+
+#define IsBQ(p) (PieceBishopQueen[(p)])
+#define IsRQ(p) (PieceRookQueen[(p)])
+#define IsKn(p) (PieceKnight[(p)])
+#define IsKi(p) (PieceKing[(p)])
+
 /* FUNCTIONS */
 
 extern int Sq120ToSq64[BRD_SQ_NUM];
@@ -120,6 +144,11 @@ extern int PieceCol[13];
 extern int FilesBrd[BRD_SQ_NUM];
 extern int RanksBrd[BRD_SQ_NUM];
 
+extern int PieceKnight[13];
+extern int PieceKing[13];
+extern int PieceRookQueen[13];
+extern int PieceBishopQueen[13];
+
 /* FUNCTIONS */
 
 // init.c
@@ -138,5 +167,9 @@ extern void ResetBoard(S_BOARD *pos);
 extern int ParseFen(char *fen, S_BOARD *pos);
 extern void PrintBoard(const S_BOARD *pos);
 extern void UpdateListsMaterial(S_BOARD *pos);
+extern int CheckBoard(const S_BOARD *pos);
+
+// attack.c
+extern int SqAttacked(const int sq, const int side, const S_BOARD *pos);
 
 #endif
