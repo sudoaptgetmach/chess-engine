@@ -40,3 +40,7 @@
 1	33	1743227021596505976	CMakeFiles/chess_engine.dir/main.c.o	9692be33cec92bba
 1	60	1743227021597703237	CMakeFiles/chess_engine.dir/init.c.o	aecb7eeae0774857
 60	79	1743227021655506854	chess_engine	b09d25e19acbd70c
+1	40	1743227219825420606	CMakeFiles/chess_engine.dir/init.c.o	aecb7eeae0774857
+0	41	1743227219824420592	CMakeFiles/chess_engine.dir/main.c.o	9692be33cec92bba
+1	59	1743227219826268218	CMakeFiles/chess_engine.dir/board.c.o	97938e2a681fcb39
+59	87	1743227219883421450	chess_engine	b09d25e19acbd70c

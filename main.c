@@ -8,7 +8,6 @@ int main() {
 
    AllInit();
 
-/*
    S_BOARD board[1];
 
    ParseFen(START_FEN, board);
@@ -19,7 +18,6 @@ int main() {
 
    ParseFen(FEN2, board);
    PrintBoard(board);
-*/
 
    return 0;
 }
