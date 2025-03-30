@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include "defs.h"
 
-#define FEN1 "8/5pk1/6p1/8/8/7P/4Q1P1/2q3K1 w - - 6 38"
-#define FEN2 "r1bqr1k1/pp2p1bp/2p2pN1/3p3n/2PP4/3BP3/PP1N1PPP/R2Q1RK1 b - - 0 12"
+#define PAWNMOVES "r1bqkbnr/pp2pppp/2np4/1B6/3NP3/8/PPP2PPP/RNBQK2R b KQkq - 2 5"
 
 int main() {
 
@@ -10,10 +9,14 @@ int main() {
 
    S_BOARD board[1];
 
-   ParseFen(FEN2, board);
+   ParseFen(PAWNMOVES,board);
    PrintBoard(board);
 
-   ASSERT(CheckBoard(board));
+   S_MOVELIST list[1];
+
+   GenerateAllMoves(board,list);
+
+   PrintMoveList(list);
 
    return 0;
 }

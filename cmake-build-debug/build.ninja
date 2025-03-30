@@ -91,6 +91,24 @@ build CMakeFiles/chess_engine.dir/attack.c.o: C_COMPILER__chess_engine_unscanned
   OBJECT_DIR = CMakeFiles/chess_engine.dir
   OBJECT_FILE_DIR = CMakeFiles/chess_engine.dir
 
+build CMakeFiles/chess_engine.dir/io.c.o: C_COMPILER__chess_engine_unscanned_Debug /home/mach/CLionProjects/chess-engine/io.c || cmake_object_order_depends_target_chess_engine
+  DEP_FILE = CMakeFiles/chess_engine.dir/io.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/chess_engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess_engine.dir
+
+build CMakeFiles/chess_engine.dir/movegen.c.o: C_COMPILER__chess_engine_unscanned_Debug /home/mach/CLionProjects/chess-engine/movegen.c || cmake_object_order_depends_target_chess_engine
+  DEP_FILE = CMakeFiles/chess_engine.dir/movegen.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/chess_engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess_engine.dir
+
+build CMakeFiles/chess_engine.dir/validate.c.o: C_COMPILER__chess_engine_unscanned_Debug /home/mach/CLionProjects/chess-engine/validate.c || cmake_object_order_depends_target_chess_engine
+  DEP_FILE = CMakeFiles/chess_engine.dir/validate.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/chess_engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/chess_engine.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target chess_engine
@@ -99,7 +117,7 @@ build CMakeFiles/chess_engine.dir/attack.c.o: C_COMPILER__chess_engine_unscanned
 #############################################
 # Link the executable chess_engine
 
-build chess_engine: C_EXECUTABLE_LINKER__chess_engine_Debug CMakeFiles/chess_engine.dir/main.c.o CMakeFiles/chess_engine.dir/init.c.o CMakeFiles/chess_engine.dir/bitboards.c.o CMakeFiles/chess_engine.dir/hashkeys.c.o CMakeFiles/chess_engine.dir/board.c.o CMakeFiles/chess_engine.dir/data.c.o CMakeFiles/chess_engine.dir/attack.c.o
+build chess_engine: C_EXECUTABLE_LINKER__chess_engine_Debug CMakeFiles/chess_engine.dir/main.c.o CMakeFiles/chess_engine.dir/init.c.o CMakeFiles/chess_engine.dir/bitboards.c.o CMakeFiles/chess_engine.dir/hashkeys.c.o CMakeFiles/chess_engine.dir/board.c.o CMakeFiles/chess_engine.dir/data.c.o CMakeFiles/chess_engine.dir/attack.c.o CMakeFiles/chess_engine.dir/io.c.o CMakeFiles/chess_engine.dir/movegen.c.o CMakeFiles/chess_engine.dir/validate.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/chess_engine.dir
   POST_BUILD = :

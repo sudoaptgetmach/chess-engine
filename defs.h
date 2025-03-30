@@ -21,11 +21,11 @@ if (!(n)) { \
   exit(1);}
 #endif
 
-
 #define NAME "Chess Engine"
 #define BRD_SQ_NUM 128
 
 #define MAXGAMEMOVES 2048
+#define MAXPOSITIONMOVES 256
 
 #define START_FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
@@ -56,6 +56,11 @@ typedef struct {
   int move;
   int score;
 } S_MOVE;
+
+typedef struct {
+  S_MOVE moves[MAXPOSITIONMOVES];
+  int count;
+} S_MOVELIST;
 
 typedef struct {
   int move;
@@ -95,8 +100,8 @@ typedef struct {
 
 /* GAME MOVE */
 
-#define FROMSQ(m) ((m) & 0x3F)
-#define TOSQ(m) (((m)>>7) & 0x3F)
+#define FROMSQ(m) ((m) & 0x7F)
+#define TOSQ(m) (((m)>>7) & 0x7F)
 #define CAPTURED(m) (((m)>>14) & 0xF)
 #define PROMOTED(m) (((m)>>20) & 0xF)
 
@@ -171,5 +176,25 @@ extern int CheckBoard(const S_BOARD *pos);
 
 // attack.c
 extern int SqAttacked(const int sq, const int side, const S_BOARD *pos);
+
+// io.c
+extern char *PrSq(const int sq);
+extern char *PrMove(const int move);
+extern void PrintMoveList(const S_MOVELIST *list);
+
+// movegen.c
+extern void AddQuietMove(const S_BOARD *pos, int move, S_MOVELIST *list);
+extern void AddCaptureMove(const S_BOARD *pos, int move, S_MOVELIST *list);
+extern void AddEnPassantMove(const S_BOARD *pos, int move, S_MOVELIST *list);
+
+// validate.c
+extern int SqOnBoard(const int sq);
+extern int SideValid(const int side);
+extern int FileRankValid(const int fr);
+extern int PieceValidEmpty(const int pce);
+extern int PieceValid(const int pce);
+
+// movegen.c
+extern void GenerateAllMoves(const S_BOARD *pos, S_MOVELIST *list);
 
 #endif
