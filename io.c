@@ -53,7 +53,7 @@ void PrintMoveList(const S_MOVELIST *list) {
         move = list->moves[index].move;
         score = list->moves[index].score;
 
-        printf("Move: %d -> %s (score: %d)\n", index+1, PrMove(move), score;
+        printf("Move: %d -> %s (score: %d)\n", index+1, PrMove(move), score);
     }
     printf("Total moves: %d\n", list->count);
 }
