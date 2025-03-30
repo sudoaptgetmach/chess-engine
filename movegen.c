@@ -2,13 +2,6 @@
 // Created by mach on 29/03/25.
 //
 
-// This file is part of the Chess program.
-// It is subject to the terms and conditions defined in
-// the LICENSE file, which is part of this source code package.
-
-// Copyright (C) 2025 mach
-// All rights reserved.
-
 #include <stdio.h>
 #include "defs.h"
 
